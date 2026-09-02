@@ -76,6 +76,46 @@ The file "fun.exe" downloads.
 #### OUTPUT:
 <img width="1320" height="651" alt="8" src="https://github.com/user-attachments/assets/71efc83e-186c-45a3-a1d5-6b8e26836909" />
 
+## OUTPUT:
+
+<img width="1642" height="383" alt="image" src="https://github.com/user-attachments/assets/8564aa83-3e79-4622-8474-353ff88d6e4d" />
+
+
+To see a list of processes, at the meterpreter > prompt, execute this command:
+ps  ⇒ can see the fun.exe process running with pid 1156
+## OUTPUT:
+<img width="1372" height="790" alt="image" src="https://github.com/user-attachments/assets/37f5c6d3-c09c-42e7-bd19-c65a0731ad1d" />
+
+
+
+The Metasploit shell is running inside the "fun.exe" process. If the user closes that process, or logs off, the connection will be lost.
+To become more persistent, we'll migrate to a process that will last longer.
+Let's migrate to the winlogon process.
+At the meterpreter > prompt, execute this command:
+
+migrate -N explorer.exe
+## OUTPUT:
+
+<img width="1610" height="636" alt="image" src="https://github.com/user-attachments/assets/cdae74a2-167a-4fed-8d9c-87d7e667831c" />
+
+at meterpreter > prompt, execute this command:
+netstat
+A list of network connections appears, including one to a remote port of 4444, as highlighted in the image below.
+Notice the "PID/Program name" value for this connection, which is redacted 
+## OUTPUT:
+<img width="1301" height="827" alt="image" src="https://github.com/user-attachments/assets/9307bc3f-06a8-415f-b187-be2416bf6484" />
+
+
+
+Post Exploitation
+The target is now owned. Following are meterpreter commands for key capturing in the target machine
+keyscan_start	Begins capturing keys typed in the target. On the Windows target, open Notepad and type in some text, such as your name.
+
+## OUTPUT:
+<img width="2172" height="724" alt="image" src="https://github.com/user-attachments/assets/fb32c397-0ac2-48d2-8d39-5033291ce57e" />
+
+
+
 
 # RESULT:
 The Metasploit framework is  used to compromise windows and is examined successfully.
